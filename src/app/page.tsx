@@ -1,101 +1,167 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent } from "@/components/ui/card"
+import { Clipboard, Save } from "lucide-react"
+import Image from "next/image"
+
+interface SignatureData {
+  name: string
+  jobTitle: string
+  secondaryTitle: string
+  phone: string
+  headshotUrl: string
+}
+
+export default function SignatureCustomizer() {
+  const [signatureData, setSignatureData] = useState<SignatureData>({
+    name: "Jeff Schumann",
+    jobTitle: "CEO",
+    secondaryTitle: "",
+    phone: "W: 555-133-7123",
+    headshotUrl:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-21%20at%2010.44.44%E2%80%AFAM-85RxA93dIj7t2QpdqmHCV6aoOhFQ4D.png",
+  })
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setSignatureData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-gray-50">
+      <header className="flex items-center justify-between px-6 py-4 bg-[#1C1C1C] text-white">
+        <h1 className="text-xl font-bold">1chooo</h1>
+        <div className="flex gap-2">
+          <Button variant="outline" className="bg-white text-black hover:bg-gray-100">
+            <Clipboard className="w-4 h-4 mr-2" />
+            Copy as HTML
+          </Button>
+          <Button className="bg-[#D84B6C] hover:bg-[#C23A5B]">
+            <Save className="w-4 h-4 mr-2" />
+            Save Your Signature
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </header>
+
+      <div className="container mx-auto py-8">
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Form Section */}
+          <div className="space-y-6">
+            <div className="space-y-4 p-6 bg-white rounded-lg shadow-sm">
+              <h2 className="font-semibold text-gray-700">YOUR PHOTO</h2>
+              <div className="space-y-2">
+                <Label htmlFor="headshotUrl">📎 Headshot URL</Label>
+                <div className="flex gap-2">
+                  <Input
+                    id="headshotUrl"
+                    name="headshotUrl"
+                    value={signatureData.headshotUrl}
+                    onChange={handleInputChange}
+                    placeholder="(optional)"
+                  />
+                  <Button variant="link" className="text-[#D84B6C] hover:text-[#C23A5B]">
+                    Get Your Headshot
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4 p-6 bg-white rounded-lg shadow-sm">
+              <h2 className="font-semibold text-gray-700">YOUR DETAILS</h2>
+              <div className="space-y-2">
+                <Label htmlFor="name">😊 Your Name</Label>
+                <Input id="name" name="name" value={signatureData.name} onChange={handleInputChange} />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="jobTitle">💼 Job Title</Label>
+                <Input
+                  id="jobTitle"
+                  name="jobTitle"
+                  value={signatureData.jobTitle}
+                  onChange={handleInputChange}
+                  placeholder="(optional)"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="secondaryTitle">🎖 Secondary Title</Label>
+                <Input
+                  id="secondaryTitle"
+                  name="secondaryTitle"
+                  value={signatureData.secondaryTitle}
+                  onChange={handleInputChange}
+                  placeholder="(optional)"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-4 p-6 bg-white rounded-lg shadow-sm">
+              <h2 className="font-semibold text-gray-700">CONTACT OPTIONS</h2>
+              <div className="space-y-2">
+                <Label htmlFor="phone">🏢 Office Phone</Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  value={signatureData.phone}
+                  onChange={handleInputChange}
+                  placeholder="(optional)"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Preview Section */}
+          <Card>
+            <CardContent className="p-6">
+              <div className="flex gap-4">
+                <Image
+                  src="https://www.1chooo.com/favicon.ico"
+                  alt="Profile"
+                  className="w-24 h-24 rounded-full object-cover"
+                />
+                <div>
+                  <h2 className="text-xl font-bold">{signatureData.name}</h2>
+                  <p className="text-gray-600">{signatureData.jobTitle}</p>
+                  {signatureData.secondaryTitle && <p className="text-gray-600">{signatureData.secondaryTitle}</p>}
+                  <p className="text-gray-600 mt-2">{signatureData.phone}</p>
+                  <p className="text-[#D84B6C]">jeff@awarehq.com</p>
+                </div>
+              </div>
+              <div className="mt-4">
+                <Image src="https://www.1chooo.com/favicon.ico" alt="Company Logo" className="h-6" />
+                <p className="text-gray-600 mt-2">111 Liberty Street · Suite 102 · Columbus, OH 43215</p>
+                <div className="flex gap-2 mt-2 text-[#D84B6C]">
+                  <a href="#" className="hover:underline">
+                    Website
+                  </a>
+                  <span>·</span>
+                  <a href="#" className="hover:underline">
+                    LinkedIn
+                  </a>
+                  <span>·</span>
+                  <a href="#" className="hover:underline">
+                    Twitter
+                  </a>
+                  <span>·</span>
+                  <a href="#" className="hover:underline">
+                    Facebook
+                  </a>
+                  <span>·</span>
+                  <a href="#" className="hover:underline">
+                    Instagram
+                  </a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
