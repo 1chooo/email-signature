@@ -26,7 +26,9 @@ const RootLayout = ({
           disableTransitionOnChange
         >
           <Header />
-          {children}
+          <main className='relative mx-auto mb-16 max-w-4xl px-8 py-24'>
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
