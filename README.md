@@ -1,42 +1,72 @@
-# Tools
+<h1 align="center">Next.js TailwindCSS Template</h1>
 
-- [ ] E-mail Signature
-- [ ] Subnet Calculator
-- [ ] markdown previewer
+<div align="center">
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<a href="https://template.imadatyat.me">View Demo</a>
+·
+<a href="https://github.com/imadatyatalah/next.js-template/issues">Report Bug or Request Feature</a>
+
+</div>
+
+<div align="center">
+
+[![MIT License](https://img.shields.io/github/license/imadatyatalah/next.js-template?color=blue&style=for-the-badge)](https://github.com/imadatyatalah/next.js-template/blob/main/LICENSE)
+[![Stargazers](https://img.shields.io/github/stars/imadatyatalah/next.js-template?style=for-the-badge)](https://github.com/imadatyatalah/next.js-template/stargazers)
+[![Forks](https://img.shields.io/github/forks/imadatyatalah/next.js-template?style=for-the-badge)](https://github.com/imadatyatalah/next.js-template/network/members)
+
+</div>
+
+## About The Project
+
+After a couple of Next.js projects, I found that I'm spending too much time setting up new ones, That's why I created this template, Fell free to use it and give me your feedback!
+
+### Built With
+
+- [TypeScript](https://www.typescriptlang.org)
+- [Next.js](https://nextjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Next Themes](https://github.com/pacocoursey/next-themes)
+- [shadcn/ui](https://ui.shadcn.com)
+
+### Features
+
+- TypeScript ready.
+- ESLint ready.
+- Dark Mode ready.
+- Supports absolute imports.
+- SEO friendly.
+
+### Screenshot
+
+![Screenshot](./screenshot.png)
+
+## Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fimadatyatalah%2Fnext.js-template)
 
 ## Getting Started
 
-First, run the development server:
+Create a new application using `create-next-app` with the `-e | --example` flag pointing to this repository's _url_, like so:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx create-next-app@latest --example https://github.com/imadatyatalah/next.js-template
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> **Tip:** You can find `create-next-app`'s documentation at [https://nextjs.org/docs/app/api-reference/create-next-app](https://nextjs.org/docs/app/api-reference/create-next-app).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can also click on the `Use this template` button.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+After that, clone the repository that was created on your account and follow the steps below:
 
-## Learn More
+```bash
+# Installing project dependencies
+pnpm i
+# Starting the project
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Your site is now running at [`http://localhost:3000`](http://localhost:3000)!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Distributed under the MIT License. See [`LICENSE`](https://github.com/imadatyatalah/next.js-template/blob/main/LICENSE) for more information.

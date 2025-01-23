@@ -1,11 +1,14 @@
+"use client";
+
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import StarOnGitHub from './star-on-github'
+import ThemeToggle from "@/components/theme/theme-toggle";
+
 
 const Header = () => {
   return (
-    <header className='fixed inset-x-0 top-0 z-40 bg-black/50 shadow-sm saturate-100 backdrop-blur-[10px]'>
+    <header className='fixed inset-x-0 top-0 z-40 shadow-sm saturate-100 backdrop-blur-[10px]'>
       <div className='mx-auto flex h-[60px] max-w-4xl items-center justify-between px-8'>
         <Link href='/' aria-label='Home' title='Home'>
           <Image
@@ -17,8 +20,7 @@ const Header = () => {
           />
         </Link>
         <div className='flex items-center justify-center gap-6'>
-          <StarOnGitHub />
-          {/* Theme Toogle */}
+          <ThemeToggle />
         </div>
       </div>
     </header>
