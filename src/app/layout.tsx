@@ -12,11 +12,7 @@ export const metadata: Metadata = {
   description: "A collection of free online tools created by Chun-Ho Hugo Lin (1chooo), inspired by Tsz Hong Tsang (tszhong0411).",
 };
 
-const RootLayout = ({
-  children,
-}: {
-  readonly children: React.ReactNode;
-}) => {
+function RootLayout({ children }: { readonly children: React.ReactNode; }) {
   return (
     <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       <body>

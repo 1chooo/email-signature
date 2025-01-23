@@ -64,7 +64,7 @@ const TOOLS = [
 ]
 
 
-const Home = () => {
+function Home() {
   const [value, setValue] = React.useState('')
 
   const filter = (tool: Tool): boolean =>
@@ -90,27 +90,25 @@ const Home = () => {
         >
           {value
             ? TOOLS.filter((t) => t.links.some((tool) => filter(tool))).map(
-                (t) => {
-                  const { label, links } = t
-                  const filtered = links.filter((tool) => filter(tool))
+              (t) => {
+                const { label, links } = t
+                const filtered = links.filter((tool) => filter(tool))
 
-                  return <Card key={label} tools={filtered} title={label} />
-                }
-              )
+                return <Card key={label} tools={filtered} title={label} />
+              }
+            )
             : TOOLS.map((tool) => {
-                const { label, links } = tool
+              const { label, links } = tool
 
-                return <Card key={label} tools={links} title={label} />
-              })}
+              return <Card key={label} tools={links} title={label} />
+            })}
         </div>
       </div>
     </div>
   );
 };
 
-const Card = (props: CardProps) => {
-  const { tools, title } = props
-
+function Card({ tools, title }: CardProps) {
   return (
     <div className='w-full rounded-lg border p-4'>
       <div>{title}</div>
@@ -123,8 +121,7 @@ const Card = (props: CardProps) => {
   )
 }
 
-const Item = (props: Tool) => {
-  const { color, icon, label, link } = props
+function Item({ color, icon, label, link }: Tool) {
   const Icon = icon
 
   return (
