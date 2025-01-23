@@ -42,7 +42,7 @@ const TOOLS = [
     links: [
       {
         label: 'Subnet Calculator',
-        link: '/',
+        link: '/#get-started',
         keywords: ['PDF', 'Viewer', 'Document', 'File', 'Document'],
         color: '#15aabf',
         icon: Network
@@ -54,7 +54,7 @@ const TOOLS = [
     links: [
       {
         label: 'Markdown Previewer',
-        link: '/calculation/word-counter',
+        link: '/#get-started',
         keywords: ['Word', 'Counter', 'Calculation', 'Text'],
         color: '#4c6ef5',
         icon: FileTextIcon
