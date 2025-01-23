@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
-import { GithubIcon } from 'lucide-react'
 import Image from 'next/image'
+import StarOnGitHub from './star-on-github'
 
 const Header = () => {
   return (
@@ -17,15 +17,8 @@ const Header = () => {
           />
         </Link>
         <div className='flex items-center justify-center gap-6'>
-          <a
-            href='https://github.com/1chooo/tools'
-            target='_blank'
-            rel='noreferrer noopener'
-            aria-label='GitHub'
-          >
-            <GithubIcon />
-            {/* Theme Toogle */}
-          </a>
+          <StarOnGitHub />
+          {/* Theme Toogle */}
         </div>
       </div>
     </header>
