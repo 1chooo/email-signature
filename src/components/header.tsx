@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import ThemeToggle from "@/components/theme/theme-toggle";
+import ThemeToggle from "@/components/theme/theme-toggle"
+import { Github } from 'lucide-react'
 
 
 const Header = () => {
@@ -20,6 +21,14 @@ const Header = () => {
           />
         </Link>
         <div className='flex items-center justify-center gap-6'>
+          <Link
+            href='https://github.com/1chooo/tools'
+            target='_blank'
+            rel='noreferrer noopener'
+            aria-label='GitHub'
+          >
+            <Github className="h-5 w-5" />
+          </Link>
           <ThemeToggle />
         </div>
       </div>
