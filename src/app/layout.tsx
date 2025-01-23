@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 
 const RootLayout = ({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+}: {
+  readonly children: React.ReactNode;
+}) => {
   return (
     <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       <body>
