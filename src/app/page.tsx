@@ -3,10 +3,10 @@
 import { Input } from "@/components/ui/input"
 import {
   FileTextIcon,
-  type LucideIcon,
   PencilLine,
   Network,
 } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import React from 'react'
 import Hero from "@/components/hero";
 import Link from "next/link";
@@ -54,7 +54,7 @@ const TOOLS = [
     links: [
       {
         label: 'Markdown Previewer',
-        link: '/#get-started',
+        link: '/markdown-previewer',
         keywords: ['Word', 'Counter', 'Calculation', 'Text'],
         color: '#4c6ef5',
         icon: FileTextIcon
