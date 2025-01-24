@@ -51,8 +51,11 @@ const Footer = () => {
             href="/#"
             className="text-sm text-[#00000070] dark:text-[#ffffff70] transition-all hover:text-black dark:hover:text-white">Blog</Link>
           <Link
-            href="/#"
+            href="https://github.com/1chooo/tools/issues"
             className="text-sm text-[#00000070] dark:text-[#ffffff70] transition-all hover:text-black dark:hover:text-white"
+            target='_blank'
+            rel='noreferrer noopener'
+            aria-label="Feedback"
           >Feedback</Link>
         </div>
         <div className="flex flex-col gap-2">
@@ -64,7 +67,7 @@ const Footer = () => {
           <Link
             href="/#"
             className="text-sm text-[#00000070] dark:text-[#ffffff70] transition-all hover:text-black dark:hover:text-white"
-          >Pricing</Link>
+          >Mechanism</Link>
         </div>
         <div className="flex flex-col gap-2">
           <div className="font-medium">COMPANY</div>
