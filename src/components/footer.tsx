@@ -7,7 +7,7 @@ import Image from 'next/image'
 const Footer = () => {
   return (
     <div
-      className="flex w-full flex-col items-center justify-between gap-10 border-t border-[#ffffff20] py-20 lg:flex-row"
+      className="flex w-full flex-col items-center justify-between gap-10 border-t dark:border-[#ffffff20] py-20 lg:flex-row border-[#00000020]"
     >
       <div className="flex flex-col items-center gap-4 lg:ml-32 lg:items-start">
         <div className="flex items-center gap-2 text-xl font-bold">
