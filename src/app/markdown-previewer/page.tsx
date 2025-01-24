@@ -4,13 +4,62 @@ import React from "react"
 import { Textarea } from "@/components/ui/text-area"
 import Container from "@/components/container"
 import Title from "@/components/title"
+import {
+  parseItalic,
+  parseBold,
+  parseHeadings,
+  parseStrikethrough,
+  parseBlockquote,
+  parseInlineCode,
+  parseHorizontalRule,
+  parseHighlight,
+  parseLinks,
+  parseImages,
+  parseUnorderedList,
+} from "@/lib/markdown-parser"
 
-export default function MarkdownPreviewer() {
+import "@/styles/preview.css"
+
+function MarkdownPreviewer() {
   const [value, setValue] = React.useState("")
   const words = value.match(/\S+/g)?.length || 0
   const chars = value.length || 0
   const charsWithoutSpaces = value.replaceAll(" ", "").length || 0
   const paragraphs = value.split("\n").filter((paragraph) => paragraph !== "").length || 0
+
+  const parseMarkdown = (markdownText: string) => {
+    const unorderedListProcessedText = parseUnorderedList(markdownText);
+    const lines = unorderedListProcessedText.split("\n");
+
+    return lines.map((line, index) => {
+      if (
+        line.startsWith("<li>") ||
+        line.startsWith("</ul>") ||
+        line.startsWith("<ul>")
+      ) {
+        return <div key={index} dangerouslySetInnerHTML={{ __html: line }} />;
+      }
+
+      const element =
+        parseHorizontalRule(line) ||
+        parseBlockquote(line) ||
+        parseHeadings(line);
+
+      if (element) {
+        return React.cloneElement(element, { key: index });
+      }
+
+      let parsedLine = parseBold(line);
+      parsedLine = parseItalic(parsedLine);
+      parsedLine = parseStrikethrough(parsedLine);
+      parsedLine = parseInlineCode(parsedLine);
+      parsedLine = parseHighlight(parsedLine);
+      parsedLine = parseImages(parsedLine);
+      parsedLine = parseLinks(parsedLine);
+
+      return <p key={index} dangerouslySetInnerHTML={{ __html: parsedLine }} />;
+    });
+  };
 
   return (
     <Container className="flex flex-col items-center justify-center">
@@ -35,19 +84,25 @@ export default function MarkdownPreviewer() {
       </div>
 
       <div className="w-full space-y-4 md:flex md:space-x-4 md:space-y-0">
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2 shadow-md">
           <Textarea
             placeholder="Type here ..."
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            className="min-h-[300px]"
+            className="min-h-[300px] resize-y"
           />
         </div>
         <div className="w-full md:w-1/2 shadow-md">
-          <div className="rounded-md border p-4 min-h-[300px] whitespace-pre-wrap">{value}</div>
+          <div
+            className="preview rounded-md border p-4 min-h-[300px] whitespace-pre-wrap"
+            style={{ height: '100%' }}
+          >
+            {parseMarkdown(value)}
+          </div>
         </div>
       </div>
     </Container>
   )
 }
 
+export default MarkdownPreviewer
