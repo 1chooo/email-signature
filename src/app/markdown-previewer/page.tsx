@@ -1,11 +1,11 @@
 "use client"
 
+import React from "react"
 import { Textarea } from "@/components/ui/text-area"
 import Container from "@/components/container"
 import Title from "@/components/title"
-import React from "react"
 
-export default function TextPreviewer() {
+export default function MarkdownPreviewer() {
   const [value, setValue] = React.useState("")
   const words = value.match(/\S+/g)?.length || 0
   const chars = value.length || 0
