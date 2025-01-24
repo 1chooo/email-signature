@@ -25,7 +25,7 @@ function MarkdownPreviewer() {
   const words = value.match(/\S+/g)?.length || 0
   const chars = value.length || 0
   const charsWithoutSpaces = value.replaceAll(" ", "").length || 0
-  const paragraphs = value.split("\n").filter((paragraph) => paragraph !== "").length || 0
+  const paragraphs = value.split("\n\n").filter((paragraph) => paragraph.trim() !== "").length || 0
 
   const parseMarkdown = (markdownText: string) => {
     const unorderedListProcessedText = parseUnorderedList(markdownText);
@@ -84,14 +84,12 @@ function MarkdownPreviewer() {
       </div>
 
       <div className="w-full space-y-4 md:flex md:space-x-4 md:space-y-0">
-        <div className="w-full md:w-1/2 shadow-md">
-          <Textarea
-            placeholder="Type here ..."
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            className="min-h-[300px] resize-y"
-          />
-        </div>
+        <Textarea
+          placeholder="Type here ..."
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          className="w-full md:w-1/2 shadow-md min-h-[300px] resize-y"
+        />
         <div className="w-full md:w-1/2 shadow-md">
           <div
             className="preview rounded-md border p-4 min-h-[300px] whitespace-pre-wrap"
