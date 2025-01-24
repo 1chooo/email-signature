@@ -25,7 +25,8 @@ function MarkdownPreviewer() {
   const words = value.match(/\S+/g)?.length || 0
   const chars = value.length || 0
   const charsWithoutSpaces = value.replaceAll(" ", "").length || 0
-  const paragraphs = value.split("\n\n").filter((paragraph) => paragraph.trim() !== "").length || 0
+  const paragraphs =
+    value.split('\n').filter((paragraph) => paragraph !== '').length || 0
 
   const parseMarkdown = (markdownText: string) => {
     const unorderedListProcessedText = parseUnorderedList(markdownText);
