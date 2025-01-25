@@ -26,6 +26,25 @@ type Tool = {
 
 const TOOLS = [
   {
+    label: 'Editor',
+    links: [
+      {
+        label: 'Markdown Previewer',
+        link: '/markdown-previewer',
+        keywords: ['Word', 'Counter', 'Calculation', 'Text'],
+        color: "#fa5252",
+        icon: FileTextIcon
+      },
+      {
+        label: 'Paranoid Text Spacing',
+        link: '/paranoid-text-spacing',
+        keywords: ['Word', 'Counter', 'Calculation', 'Text'],
+        color: "#40c057",
+        icon: FileTextIcon
+      },
+    ]
+  },
+  {
     label: 'Generator',
     links: [
       {
@@ -46,18 +65,6 @@ const TOOLS = [
         keywords: ['PDF', 'Viewer', 'Document', 'File', 'Document'],
         color: '#15aabf',
         icon: Network
-      }
-    ]
-  },
-  {
-    label: 'Editor',
-    links: [
-      {
-        label: 'Markdown Previewer',
-        link: '/markdown-previewer',
-        keywords: ['Word', 'Counter', 'Calculation', 'Text'],
-        color: '#4c6ef5',
-        icon: FileTextIcon
       }
     ]
   },
