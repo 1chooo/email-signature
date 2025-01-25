@@ -39,7 +39,7 @@ const Hero = () => {
       <h1 className='text-3xl font-extrabold'>
         The{' '}
         <span className='bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent'>
-          Best
+          Awesome
         </span>{' '}
         Online Tools
       </h1>
