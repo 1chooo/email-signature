@@ -10,6 +10,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Tools | Chun-Ho Hugo Lin (1chooo) | Open Source Enthusiast",
   description: "A collection of free online tools created by Chun-Ho Hugo Lin (1chooo), inspired by Tsz Hong Tsang (tszhong0411).",
+  icons: {
+    shortcut: "/favicon.ico",
+  },
 };
 
 function RootLayout({ children }: { readonly children: React.ReactNode; }) {
