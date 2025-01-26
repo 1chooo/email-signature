@@ -6,6 +6,7 @@ import {
   PencilLine,
   Network,
   Ruler,
+  Github,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import React from "react"
@@ -43,19 +44,26 @@ const TOOLS = [
         color: "#40c057",
         icon: Ruler,
       },
-    ]
+    ],
   },
   {
     label: "Generator",
     links: [
       {
-        label: "E-mail Signature Generator",
+        label: "E-mail Signature",
         link: "/email-signature",
         keywords: ["Generator", "Password", "Random"],
         color: "#f783ac",
         icon: PencilLine,
       },
-    ]
+      {
+        label: "GitHub Profile README",
+        link: "/#get-started",
+        keywords: ["Generator", "GitHub", "Profile"],
+        color: "#f783ac",
+        icon: Github,
+      },
+    ],
   },
   {
     label: "Network",
@@ -67,7 +75,7 @@ const TOOLS = [
         color: "#15aabf",
         icon: Network,
       },
-    ]
+    ],
   },
 ]
 
@@ -142,6 +150,5 @@ function Item({ color, icon, label, link }: Tool) {
     </Link>
   )
 }
-
 
 export default Home;
