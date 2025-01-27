@@ -36,6 +36,7 @@ Here are some free online tools created by [@1chooo](https://github.com/1chooo),
 - [ ] E-mail Signature
 - [ ] Subnet Calculator
 - [ ] GitHub Profile README
+- [ ] Math Visualizer
 
 ## 🌏 Contributing
 

@@ -60,7 +60,7 @@ const TOOLS = [
         label: "GitHub Profile README",
         link: "/#get-started",
         keywords: ["Generator", "GitHub", "Profile"],
-        color: "#f783ac",
+        color: "#be4bdb",
         icon: Github,
       },
     ],
@@ -73,6 +73,18 @@ const TOOLS = [
         link: "/#get-started",
         keywords: ["PDF", "Viewer", "Document", "File", "Document"],
         color: "#15aabf",
+        icon: Network,
+      },
+    ],
+  },
+  {
+    label: "Math Visualizer",
+    links: [
+      {
+        label: "Math Visualizer",
+        link: "/#get-started",
+        keywords: ["Math"],
+        color: "#4c6ef5",
         icon: Network,
       },
     ],
