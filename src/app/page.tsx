@@ -66,8 +66,15 @@ const TOOLS = [
     ],
   },
   {
-    label: "Network",
+    label: "Calculator",
     links: [
+      {
+        label: "Compound Interest Calculator",
+        link: "/compound-interest-calculator",
+        keywords: ["Interest", "Calculator", "Compound"],
+        color: "#fd7e14",
+        icon: Network,
+      },
       {
         label: "Subnet Calculator",
         link: "/#get-started",
