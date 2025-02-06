@@ -7,6 +7,7 @@ import {
   Network,
   Ruler,
   Github,
+  ChartSpline,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import React from "react"
@@ -47,6 +48,25 @@ const TOOLS = [
     ],
   },
   {
+    label: "Calculator",
+    links: [
+      {
+        label: "Compound Interest Calculator",
+        link: "/compound-interest-calculator",
+        keywords: ["Interest", "Calculator", "Compound"],
+        color: "#fd7e14",
+        icon: ChartSpline,
+      },
+      {
+        label: "Subnet Calculator",
+        link: "/#get-started",
+        keywords: ["PDF", "Viewer", "Document", "File", "Document"],
+        color: "#15aabf",
+        icon: Network,
+      },
+    ],
+  },
+  {
     label: "Generator",
     links: [
       {
@@ -62,25 +82,6 @@ const TOOLS = [
         keywords: ["Generator", "GitHub", "Profile"],
         color: "#be4bdb",
         icon: Github,
-      },
-    ],
-  },
-  {
-    label: "Calculator",
-    links: [
-      {
-        label: "Compound Interest Calculator",
-        link: "/compound-interest-calculator",
-        keywords: ["Interest", "Calculator", "Compound"],
-        color: "#fd7e14",
-        icon: Network,
-      },
-      {
-        label: "Subnet Calculator",
-        link: "/#get-started",
-        keywords: ["PDF", "Viewer", "Document", "File", "Document"],
-        color: "#15aabf",
-        icon: Network,
       },
     ],
   },
