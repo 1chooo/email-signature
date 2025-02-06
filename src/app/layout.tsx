@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   icons: {
     shortcut: "/favicon.ico",
   },
+  openGraph: {
+    url: "https://tools.1chooo.com",
+    type: "website",
+    siteName: "Tools | Chun-Ho Hugo Lin (1chooo) | Open Source Enthusiast",
+    title: "Tools | Chun-Ho Hugo Lin (1chooo) | Open Source Enthusiast",
+    description: "A collection of free online tools created by Chun-Ho Hugo Lin (1chooo), inspired by Tsz Hong Tsang (tszhong0411).",
+    images: "/og.png",
+  },
 };
 
 function RootLayout({ children }: { readonly children: React.ReactNode; }) {
