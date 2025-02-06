@@ -1,19 +1,29 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import { DollarSign } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent } from "@/components/ui/chart"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
+} from "@/components/ui/chart"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 
 interface CalculationResult {
   year: number
   contributed: number
   total: number
+}
+
+interface InputError {
+  field: string
+  message: string
 }
 
 export default function CompoundInterestCalculator() {
@@ -23,8 +33,39 @@ export default function CompoundInterestCalculator() {
   const [rate, setRate] = useState("")
   const [results, setResults] = useState<CalculationResult[]>([])
   const [totalValue, setTotalValue] = useState<number | null>(null)
+  const [errors, setErrors] = useState<InputError[]>([])
+
+  useEffect(() => {
+    calculateCompoundInterest()
+  }, [initial, monthly, years, rate]) //This line was already correct.  No changes needed.
+
+  const validateInputs = (): boolean => {
+    const newErrors: InputError[] = []
+
+    if (initial === "" || isNaN(Number(initial)) || Number(initial) < 0) {
+      newErrors.push({ field: "initial", message: "Initial investment must be a non-negative number" })
+    }
+    if (monthly === "" || isNaN(Number(monthly)) || Number(monthly) < 0) {
+      newErrors.push({ field: "monthly", message: "Monthly contribution must be a non-negative number" })
+    }
+    if (years === "" || isNaN(Number(years)) || !Number.isInteger(Number(years)) || Number(years) <= 0) {
+      newErrors.push({ field: "years", message: "Years must be a positive integer" })
+    }
+    if (rate === "" || isNaN(Number(rate)) || Number(rate) < 0) {
+      newErrors.push({ field: "rate", message: "Interest rate must be a non-negative number" })
+    }
+
+    setErrors(newErrors)
+    return newErrors.length === 0
+  }
 
   const calculateCompoundInterest = () => {
+    if (!validateInputs()) {
+      setResults([])
+      setTotalValue(null)
+      return
+    }
+
     const initialAmount = Number.parseFloat(initial) || 0
     const monthlyContribution = Number.parseFloat(monthly) || 0
     const numberOfYears = Number.parseInt(years) || 0
@@ -101,9 +142,17 @@ export default function CompoundInterestCalculator() {
             <Label htmlFor="rate">Annual interest rate (%)</Label>
             <Input id="rate" placeholder="0.0" value={rate} onChange={(e) => setRate(e.target.value)} />
           </div>
-          <Button onClick={calculateCompoundInterest} className="w-full">
-            Calculate
-          </Button>
+          {errors.length > 0 && (
+            <Alert variant="destructive">
+              <AlertDescription>
+                <ul className="list-disc pl-4">
+                  {errors.map((error, index) => (
+                    <li key={index}>{error.message}</li>
+                  ))}
+                </ul>
+              </AlertDescription>
+            </Alert>
+          )}
         </CardContent>
       </Card>
 
