@@ -105,7 +105,7 @@ export default function CompoundInterestCalculator() {
     <div className="grid gap-6 lg:grid-cols-[1fr_2fr]">
       <Card>
         <CardHeader>
-          <CardTitle>Investment Calculator</CardTitle>
+          <CardTitle>Compound Interest Calculator</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid gap-2">
