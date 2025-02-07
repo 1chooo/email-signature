@@ -1,9 +1,20 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import {
+  Area,
+  AreaChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+} from "recharts"
 import { DollarSign } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
@@ -26,7 +37,7 @@ interface InputError {
   message: string
 }
 
-export default function CompoundInterestCalculator() {
+export default function CompoundInterestCalculatorPage() {
   const [initial, setInitial] = useState("")
   const [monthly, setMonthly] = useState("")
   const [years, setYears] = useState("")
@@ -210,18 +221,18 @@ export default function CompoundInterestCalculator() {
                 <ChartTooltip content={<ChartTooltipContent />} />
                 <Area
                   type="monotone"
-                  dataKey="contributed"
-                  stackId="1"
-                  stroke="var(--color-contributed)"
-                  fill="var(--color-contributed)"
-                  fillOpacity={0.2}
-                />
-                <Area
-                  type="monotone"
                   dataKey="total"
                   stackId="2"
                   stroke="var(--color-total)"
                   fill="var(--color-total)"
+                  fillOpacity={0.2}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="contributed"
+                  stackId="1"
+                  stroke="var(--color-contributed)"
+                  fill="var(--color-contributed)"
                   fillOpacity={0.2}
                 />
                 <ChartLegend content={<ChartLegendContent />} />
@@ -237,4 +248,3 @@ export default function CompoundInterestCalculator() {
     </div>
   )
 }
-
