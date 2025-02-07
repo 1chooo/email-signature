@@ -4,12 +4,11 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 import ThemeToggle from "@/components/theme/theme-toggle"
-import { Github } from 'lucide-react'
-
+import { FaGithub } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <header className='fixed inset-x-0 top-0 z-40 shadow-sm saturate-100 backdrop-blur-[10px]'>
+    <header className='fixed inset-x-0 top-0 z-40 shadow-sm saturate-100 backdrop-blur-[10px] border-b border-gray-200 dark:border-gray-800'>
       <div className='mx-auto flex h-[60px] max-w-4xl items-center justify-between px-8'>
         <Link href='/' aria-label='Home' title='Home'>
           <Image
@@ -23,11 +22,13 @@ const Header = () => {
         <div className='flex items-center justify-center gap-6'>
           <Link
             href='https://github.com/1chooo/tools'
+            className="pl-2.5 p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-all duration-200 flex items-center gap-2 border border-border shadow-sm"
             target='_blank'
             rel='noreferrer noopener'
             aria-label='GitHub'
           >
-            <Github className="h-5 w-5" />
+            <span className="text-sm font-medium">GitHub</span>
+            <FaGithub className="h-6 w-6" />
           </Link>
           <ThemeToggle />
         </div>
