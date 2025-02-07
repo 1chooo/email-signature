@@ -99,8 +99,34 @@ const TOOLS = [
   },
 ]
 
+function Card({ tools, title }: Readonly<CardProps>) {
+  return (
+    <div className="w-full rounded-lg border p-4">
+      <div>{title}</div>
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {tools.map((tool) => (
+          <Item key={tool.label} {...tool} />
+        ))}
+      </div>
+    </div>
+  )
+}
 
-function Home() {
+function Item({ color, icon, label, link }: Readonly<Tool>) {
+  const Icon = icon
+
+  return (
+    <Link
+      href={link}
+      className="flex flex-col items-center justify-center rounded-lg bg-accent p-4 text-center transition-colors duration-300 hover:bg-accent-highlight"
+    >
+      <Icon color={color} size={32} />
+      <div className="mt-1.5">{label}</div>
+    </Link>
+  )
+}
+
+export default function HomePage() {
   const [value, setValue] = React.useState("")
 
   const filter = (tool: Tool): boolean =>
@@ -143,32 +169,3 @@ function Home() {
     </div>
   );
 };
-
-function Card({ tools, title }: CardProps) {
-  return (
-    <div className="w-full rounded-lg border p-4">
-      <div>{title}</div>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {tools.map((tool) => (
-          <Item key={tool.label} {...tool} />
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function Item({ color, icon, label, link }: Tool) {
-  const Icon = icon
-
-  return (
-    <Link
-      href={link}
-      className="flex flex-col items-center justify-center rounded-lg bg-accent p-4 text-center transition-colors duration-300 hover:bg-accent-highlight"
-    >
-      <Icon color={color} size={32} />
-      <div className="mt-1.5">{label}</div>
-    </Link>
-  )
-}
-
-export default Home;

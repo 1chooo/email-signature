@@ -32,13 +32,15 @@ function MarkdownPreviewer() {
     const unorderedListProcessedText = parseUnorderedList(markdownText);
     const lines = unorderedListProcessedText.split("\n");
 
-    return lines.map((line, index) => {
+    return lines.map((line) => {
+      const key = line + Math.random().toString(36).substr(2, 9);
+
       if (
         line.startsWith("<li>") ||
         line.startsWith("</ul>") ||
         line.startsWith("<ul>")
       ) {
-        return <div key={index} dangerouslySetInnerHTML={{ __html: line }} />;
+        return <div key={key} dangerouslySetInnerHTML={{ __html: line }} />;
       }
 
       const element =
@@ -47,7 +49,7 @@ function MarkdownPreviewer() {
         parseHeadings(line);
 
       if (element) {
-        return React.cloneElement(element, { key: index });
+        return React.cloneElement(element, { key });
       }
 
       let parsedLine = parseBold(line);
@@ -58,7 +60,7 @@ function MarkdownPreviewer() {
       parsedLine = parseImages(parsedLine);
       parsedLine = parseLinks(parsedLine);
 
-      return <p key={index} dangerouslySetInnerHTML={{ __html: parsedLine }} />;
+      return <p key={key} dangerouslySetInnerHTML={{ __html: parsedLine }} />;
     });
   };
 
