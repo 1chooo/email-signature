@@ -58,9 +58,9 @@ const TOOLS = [
         icon: ChartSpline,
       },
       {
-        label: "Subnet Calculator",
-        link: "/#get-started",
-        keywords: ["PDF", "Viewer", "Document", "File", "Document"],
+        label: "CIDR Calculator",
+        link: "/cidr-calculator",
+        keywords: ["CIDR", "Calculator", "IP", "Network"],
         color: "#15aabf",
         icon: Network,
       },

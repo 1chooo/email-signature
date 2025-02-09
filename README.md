@@ -34,8 +34,8 @@ Here are some free online tools created by [@1chooo](https://github.com/1chooo),
 - [x] [Markdown Previewer](https://tools.1chooo.com/markdown-previewer)
 - [x] [Paranoid Text Spacing](https://tools.1chooo.com/paranoid-text-spacing)
 - [x] [Compound Interest Calculator](https://tools.1chooo.com/compound-interest-calculator)
+- [x] [CIDR Calculator](https://tools.1chooo.com/cidr-calculator)
 - [ ] E-mail Signature
-- [ ] Subnet Calculator
 - [ ] GitHub Profile README
 - [ ] Math Visualizer
 
