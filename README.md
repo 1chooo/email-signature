@@ -8,7 +8,7 @@
 
 <p align="center">
   <img alt="" src="https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=Next.js&labelColor=000">
-  <img alt="" src="https://img.shields.io/github/languages/top/1chooo/1chooo.com?style=for-the-badge&labelColor=000">
+  <img alt="" src="https://img.shields.io/github/languages/top/1chooo/tools?style=for-the-badge&labelColor=000">
   <img alt="" src="https://img.shields.io/github/license/1chooo/tools?style=for-the-badge&labelColor=000">
   <img src="https://img.shields.io/github/stars/1chooo/tools?style=for-the-badge&labelColor=000" alt="Novel.sh's GitHub repo">
 </p>
@@ -32,7 +32,8 @@ Here are some free online tools created by [@1chooo](https://github.com/1chooo),
 ## ✨ Features
 
 - [x] [Markdown Previewer](https://tools.1chooo.com/markdown-previewer)
-- [x] [Paranoid Text Spacing](https://tools.1chooo.com/paranoid-text-spacing) 
+- [x] [Paranoid Text Spacing](https://tools.1chooo.com/paranoid-text-spacing)
+- [x] [Compound Interest Calculator](https://tools.1chooo.com/compound-interest-calculator)
 - [ ] E-mail Signature
 - [ ] Subnet Calculator
 - [ ] GitHub Profile README
@@ -65,7 +66,7 @@ $ pnpm install
 $ pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result.
 
 ## 📲 Contact Info
 
