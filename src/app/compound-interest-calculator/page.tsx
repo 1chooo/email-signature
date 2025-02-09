@@ -114,7 +114,7 @@ export default function CompoundInterestCalculatorPage() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_2fr]">
-      <Card>
+      <Card className="bg-slate-50 dark:bg-slate-900">
         <CardHeader>
           <CardTitle>Compound Interest Calculator</CardTitle>
         </CardHeader>
@@ -167,7 +167,7 @@ export default function CompoundInterestCalculatorPage() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="bg-slate-50 dark:bg-slate-900">
         <CardHeader>
           <CardTitle>
             {totalValue ? (
